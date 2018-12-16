@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Auth::routes();
+
+Route::view('/', 'pages.root')->name('root');
+
+Route::resource('users', 'UsersController', ['except' => ['create', 'store']]);
